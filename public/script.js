@@ -1,9 +1,9 @@
 const restaurants = [
   {
-      name: "Donburi King",
-      details: "Japanese rice bowls • B2 Funan • Quick service, fresh ingredients",
-      price: "$10-15",
-      image: "/api/placeholder/600/400"
+      name: "800 Bowls",
+      details: "Noodles, Dumplings • B1 Capitol • Din Tai Fung Noodles on a budget",
+      price: "~$10",
+      image: "800 Bowls.jpg"
   },
   {
       name: "La Scala Ristorante",
