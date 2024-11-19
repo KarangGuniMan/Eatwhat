@@ -33,7 +33,7 @@ const restaurants = [
       name: "Tian Xin Wanton Noodle",
       details: "Local Noodles, Wanton Mee, Lor Mee, Laksa • L2 Adelphi • Tasty and cheap, long queue",
       price: "under $8",
-      image: "tianxin.jpg"
+      image: "Tianxin.jpg"
   },
   {
       name: "Makanan Bollywood Restaurant",
@@ -42,40 +42,40 @@ const restaurants = [
       image: "Makanan.jpg"
   },
   {
-      name: "Citrus By The Pool",
-      details: "Western cafe • #05-00 YMCA • Pool view dining",
-      price: "$15-25",
-      image: "/api/placeholder/600/400"
+      name: "TSUI WAH - Clarke Quay Central",
+      details: "HK style Cha Chan Teng • L1 CQ Central • HK Milk Tea and tasty Egg Tarts",
+      price: "$10-20",
+      image: "eggtart.jpg"
   },
   {
-      name: "Twelve Cupcakes",
-      details: "Light bites & sandwiches • B1 Funan • Fresh pastries",
-      price: "$8-12",
-      image: "/api/placeholder/600/400"
+      name: "Fangko",
+      details: "Indonesian style Cafe • Hong Kong St • Indomee with super spice levels",
+      price: "$8-15",
+      image: "fangko.jpg"
   },
   {
-      name: "The Providore",
-      details: "Cafe • #01-02 Raffles City • Sandwiches and salads",
-      price: "$15-25",
-      image: "/api/placeholder/600/400"
+      name: "Co Chung Boat Quay",
+      details: "Vietnamese • Circular Road • Great Banh Mi & Pho",
+      price: "$10-20",
+      image: "cochung.jpg"
   },
   {
-      name: "Subway",
-      details: "Sandwiches • B1 Peninsula Plaza • Custom subs",
-      price: "$7-12",
-      image: "/api/placeholder/600/400"
+      name: "Tendon Kohaku",
+      details: "Japanese • B1 CQ Central • Tasty Tendon",
+      price: "~$20",
+      image: "Tendon.JPG"
   },
   {
-      name: "Hai Di Lao",
-      details: "Hotpot • #04-01 Clarke Quay Central • Popular chain",
-      price: "$25-40",
-      image: "/api/placeholder/600/400"
+      name: "Astons",
+      details: "Western • Level 3 CQ Central • Popular chain",
+      price: "$10-20",
+      image: "aston.jpg"
   },
   {
-      name: "Waa Cow!",
-      details: "Japanese fusion • #02-315 Funan • Premium beef bowls",
-      price: "$15-25",
-      image: "/api/placeholder/600/400"
+      name: "Mincheng Bibimbap",
+      details: "Korean Chinese fusion • L1 Funan • Affordable and Good Bibimbap, don't eat the cold noodles",
+      price: "$7-15",
+      image: "mincheng.jpg"
   },
   {
       name: "Stuff'd",
@@ -84,40 +84,40 @@ const restaurants = [
       image: "stuffd.jpg"
   },
   {
-      name: "Supreme Ramen",
-      details: "Japanese • #02-316 Funan • Authentic ramen",
-      price: "$12-18",
-      image: "/api/placeholder/600/400"
+      name: "Sukiya",
+      details: "Japanese • B1 Funan • Filling Don bowls",
+      price: "$7-15",
+      image: "sukiya.jpg"
   },
   {
-      name: "Green Dot",
-      details: "Vegetarian • B1 Peninsula Plaza • Asian fusion",
+      name: "Guzman y Gomez",
+      details: "Mexican • B1 Funan • Taco Time",
       price: "$8-15",
-      image: "/api/placeholder/600/400"
+      image: "GYG.jpg"
   },
   {
-      name: "Ya Kun Kaya Toast",
-      details: "Local breakfast • B1 Funan • Singapore classic",
+      name: "New Station Rice Bar",
+      details: "Local Rice Dishes • L3 Fortune Centre • Salted Egg Chicken Rice",
       price: "$5-10",
-      image: "/api/placeholder/600/400"
+      image: "newstation.jpg"
   },
   {
-      name: "Hangry",
-      details: "Western • #02-317 Funan • Burgers and pasta",
-      price: "$15-20",
-      image: "/api/placeholder/600/400"
-  },
-  {
-      name: "Sumo Salad",
-      details: "Healthy options • B1 Raffles City • Fresh salads",
+      name: "Han Pan",
+      details: "Korean • Circular Road • Korean set meals",
       price: "$10-15",
-      image: "/api/placeholder/600/400"
+      image: "hanpan.jpg"
   },
   {
-      name: "South Union Park",
-      details: "Cafe • #01-02 Capitol Singapore • Western cuisine",
-      price: "$18-25",
-      image: "/api/placeholder/600/400"
+      name: "109 Yong Tau Foo",
+      details: "Yong Tau Foo • Circular Road • Great tasting and Good Price",
+      price: "$5-10",
+      image: "YTF.jpg"
+  },
+  {
+      name: "Ramen Dining Keisuke Tokyo",
+      details: "Japanese • B1 Capitol Singapore • is Ramen",
+      price: "$10-20",
+      image: "ramen.jpg"
   }
 ];
 
