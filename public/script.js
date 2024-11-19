@@ -1,75 +1,143 @@
-// 1. Get user location using the browser's Geolocation API  API KEY: AIzaSyDCbG0F_cH2jGp_PltrZgcCe_K-gtEAOco
-async function getUserLocation() {
-    try {
-      // Request the user's location using the Geolocation API
-      const position = await new Promise((resolve, reject) => {
-        navigator.geolocation.getCurrentPosition(resolve, reject);
-      });
-  
-      // Extract the latitude and longitude coordinates from the response
-      const { latitude, longitude } = position.coords;
-      return { latitude, longitude };
-    } catch (error) {
-      // Handle errors, such as user denying location access
-      console.error('Error getting user location:', error);
-      throw error;
-    }
+const restaurants = [
+  {
+      name: "Donburi King",
+      details: "Japanese rice bowls • B2 Funan • Quick service, fresh ingredients",
+      price: "$10-15",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "La Scala Ristorante",
+      details: "Italian • 1 Coleman Street • Authentic pasta and pizza",
+      price: "$20-30",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Peninsula Plaza Food Court",
+      details: "Local food court • 111 North Bridge Road • Myanmar and local dishes",
+      price: "$5-10",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Flaming Don",
+      details: "Japanese fusion • B2 Funan • Flame-grilled rice bowls",
+      price: "$8-15",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Yolé",
+      details: "Healthy bowls & salads • B2 Funan • Fresh ingredients",
+      price: "$12-18",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Wheat Baumkuchen",
+      details: "Healthy Asian fusion • B1 Peninsula Plaza • Popular grain bowls",
+      price: "$10-15",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Capitol Singapore Food Hall",
+      details: "Food court • B2 Capitol Singapore • Various cuisines",
+      price: "$6-15",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Citrus By The Pool",
+      details: "Western cafe • #05-00 YMCA • Pool view dining",
+      price: "$15-25",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Twelve Cupcakes",
+      details: "Light bites & sandwiches • B1 Funan • Fresh pastries",
+      price: "$8-12",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "The Providore",
+      details: "Cafe • #01-02 Raffles City • Sandwiches and salads",
+      price: "$15-25",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Subway",
+      details: "Sandwiches • B1 Peninsula Plaza • Custom subs",
+      price: "$7-12",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Hai Di Lao",
+      details: "Hotpot • #04-01 Clarke Quay Central • Popular chain",
+      price: "$25-40",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Waa Cow!",
+      details: "Japanese fusion • #02-315 Funan • Premium beef bowls",
+      price: "$15-25",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Stuff'd",
+      details: "Mexican-Turkish fusion • B1 Funan • Quick healthy options",
+      price: "$8-12",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Supreme Ramen",
+      details: "Japanese • #02-316 Funan • Authentic ramen",
+      price: "$12-18",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Green Dot",
+      details: "Vegetarian • B1 Peninsula Plaza • Asian fusion",
+      price: "$8-15",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Ya Kun Kaya Toast",
+      details: "Local breakfast • B1 Funan • Singapore classic",
+      price: "$5-10",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Hangry",
+      details: "Western • #02-317 Funan • Burgers and pasta",
+      price: "$15-20",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "Sumo Salad",
+      details: "Healthy options • B1 Raffles City • Fresh salads",
+      price: "$10-15",
+      image: "/api/placeholder/600/400"
+  },
+  {
+      name: "South Union Park",
+      details: "Cafe • #01-02 Capitol Singapore • Western cuisine",
+      price: "$18-25",
+      image: "/api/placeholder/600/400"
   }
+];
+
+function getRandomRestaurant() {
+  const result = document.getElementById('result');
+  const nameElement = document.getElementById('restaurant-name');
+  const detailsElement = document.getElementById('restaurant-details');
+  const priceElement = document.getElementById('price-range');
+  const imageElement = document.getElementById('restaurant-image');
   
-  // 2. Use the Google Maps API to find nearby restaurants
-  async function findNearbyRestaurants(latitude, longitude) {
-    try {
-      // Create a new Google Maps client
-      const client = new google.maps.places.PlacesService(document.createElement('div'));
+  // Add animation by hiding first
+  result.classList.add('hidden');
   
-      // Search for nearby restaurants using the Places API
-      const response = await client.nearbySearch({
-        location: { lat: latitude, lng: longitude },
-        radius: 5000, // Search radius in meters
-        type: 'restaurant',
-        rankBy: google.maps.places.RankBy.RATING, // Sort by rating
-      });
-  
-      // Extract the restaurant information from the response
-      const restaurants = response.map(place => ({
-        name: place.name,
-        rating: place.rating,
-        address: place.vicinity,
-      }));
-  
-      return restaurants;
-    } catch (error) {
-      // Handle errors, such as API quota exceeded
-      console.error('Error finding nearby restaurants:', error);
-      throw error;
-    }
-  }
-  
-  // 3. Randomly select and display a restaurant recommendation
-  function displayRestaurantRecommendation(restaurants) {
-    // Randomly select a restaurant from the list
-    const randomIndex = Math.floor(Math.random() * restaurants.length);
-    const selectedRestaurant = restaurants[randomIndex];
-  
-    // Get the recommendation element and update its content
-    const recommendationElement = document.getElementById('restaurant-recommendation');
-    recommendationElement.textContent = `We recommend: ${selectedRestaurant.name} (Rating: ${selectedRestaurant.rating}, Address: ${selectedRestaurant.address})`;
-  }
-  
-  // 4. Implement the one-button functionality
-  document.getElementById('find-restaurant-button').addEventListener('click', async () => {
-    try {
-      // Get the user's location
-      const { latitude, longitude } = await getUserLocation();
-  
-      // Find nearby restaurants
-      const restaurants = await findNearbyRestaurants(latitude, longitude);
-  
-      // Display a random restaurant recommendation
-      displayRestaurantRecommendation(restaurants);
-    } catch (error) {
-      // Handle errors and display appropriate feedback to the user
-      console.error('Error:', error);
-      alert('Sorry, we couldn\'t find any nearby restaurant recommendations. Please try again later.');
-    }
-  });
+  setTimeout(() => {
+      const randomRestaurant = restaurants[Math.floor(Math.random() * restaurants.length)];
+      nameElement.textContent = randomRestaurant.name;
+      detailsElement.textContent = randomRestaurant.details;
+      priceElement.textContent = `Price range: ${randomRestaurant.price}`;
+      imageElement.src = randomRestaurant.image;
+      result.classList.remove('hidden');
+      result.classList.add('fade-in');
+  }, 200);
+}

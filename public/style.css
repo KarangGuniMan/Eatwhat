@@ -1,135 +1,392 @@
 :root {
-  --kitchen-white: #f5f5f5;
-  --kitchen-black: #1a1a1a;
-  --receipt-bg: #fff;
-  --thermal-text: #000;
-}
-
-@font-face {
-  font-family: 'RestaurantReceipt';
-  src: monospace;
+    --kitchen-white: #f5f5f5;
+    --kitchen-black: #1a1a1a;
+    --receipt-bg: #fff;
+    --thermal-text: #000;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  background-color: var(--kitchen-black);
+    background-image: url('Bear 1.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-.kitchen {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
+@font-face {
+    font-family: 'RestaurantReceipt';
+    src: monospace;
 }
 
-.kitchen::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-              url('/api/placeholder/1200/800');
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
 }
 
-.content {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 600px;
+.container {
+    background: var(--receipt-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 90%;
 }
 
 h1 {
-  color: var(--kitchen-white);
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-family: 'RestaurantReceipt', monospace;
+    text-transform: uppercase;
+    border-bottom: 1px dashed #000;
+    padding-bottom: 1rem;
 }
 
-.order-btn {
-  background-color: var(--kitchen-white);
-  color: var(--kitchen-black);
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  width: 100%;
-  transition: transform 0.2s, background-color 0.2s;
+button {
+    background-color:darkgoldenrod;
+    color: white;
+    border: none;
+    padding: 12px 12px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-bottom: 1 rem;
 }
 
-.order-btn:hover {
-  background-color: #ddd;
-  transform: scale(1.02);
+button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
 }
 
-.receipt {
-  font-family: 'RestaurantReceipt', monospace;
-  background-color: var(--receipt-bg);
-  padding: 2rem;
-  margin-top: 2rem;
-  width: 100%;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  display: none;
+.result {
+    font-family: 'RestaurantReceipt', monospace;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--receipt-bg);
+    border-top: 1px dashed #000;
 }
 
-.receipt.show {
-  display: block;
-  animation: printReceipt 0.5s ease-out;
+#order-time {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
 }
 
-.receipt-header {
-  text-align: center;
-  border-bottom: 1px dashed #000;
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
+.restaurant-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 1px dashed #000;
 }
 
-.receipt-content {
-  font-size: 1.1rem;
-  line-height: 1.5;
+.restaurant-name {
+    font-size: 1.3rem;
+    color:#2980b9;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.restaurant-details {
+    color: var(--thermal-text);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.price-range {
+    color: var(--thermal-text);
+    font-weight: bold;
+    margin-top: 0.5rem;
+    border-top: 1px dashed #000;
+    padding-top: 1rem;
 }
 
 .receipt-footer {
-  text-align: center;
-  border-top: 1px dashed #000;
-  margin-top: 1rem;
-  padding-top: 1rem;
+    text-align: center;
+    border-top: 1px dashed #000;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.hidden {
+    display: none;
 }
 
 @keyframes printReceipt {
-  from {
-      transform: translateY(-20px);
-      opacity: 0;
-  }
-  to {
-      transform: translateY(0);
-      opacity: 1;
-  }
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+        clip-path: inset(0 0 100% 0);
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.fade-in {
+    animation: printReceipt 0.8s ease-out;
 }
 
 @media (max-width: 768px) {
-  .kitchen {
-      padding: 1rem;
-  }
+    .container {
+        padding: 1rem;
+    }
 
-  h1 {
-      font-size: 2rem;
-  }
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .restaurant-name {
+        font-size: 1.1rem;
+    }
+}
+
+/* Additional receipt styling */
+.result::after {
+    content: '';
+    display: block;
+    height: 30px;
+    background: linear-gradient(
+        45deg,
+        transparent 33.333%,
+        var(--receipt-bg) 33.333%,
+        var(--receipt-bg) 66.667%,
+        transparent 66.667%
+    );
+    background-size: 15px 30px;
+    background-position: bottom;
+    margin-top: 1rem;
+}
+
+
+/*:root {
+    --kitchen-white: #f5f5f5;
+    --kitchen-black: #1a1a1a;
+    --receipt-bg: #fff;
+    --thermal-text: #000;
+}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            margin-bottom: 1.5rem;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+
+        .restaurant-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .restaurant-name {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .restaurant-details {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .price-range {
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+@font-face {
+    font-family: 'RestaurantReceipt';
+    src: monospace;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--kitchen-black);
+}
+
+.kitchen {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.kitchen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('/api/placeholder/1200/800');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    color: var(--kitchen-white);
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.order-btn {
+    background-color: var(--kitchen-white);
+    color: var(--kitchen-black);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.order-btn:hover {
+    background-color: #ddd;
+    transform: scale(1.02);
+}
+
+.receipt {
+    font-family: 'RestaurantReceipt', monospace;
+    background-color: var(--receipt-bg);
+    padding: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: none;
+}
+
+.receipt.show {
+    display: block;
+    animation: printReceipt 0.5s ease-out;
+}
+
+.receipt-header {
+    text-align: center;
+    border-bottom: 1px dashed #000;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.receipt-content {
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.receipt-footer {
+    text-align: center;
+    border-top: 1px dashed #000;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+@keyframes printReceipt {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .kitchen {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
 }
 
 
