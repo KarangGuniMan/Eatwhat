@@ -1,3 +1,15 @@
+const express = require('express');
+const { Client } = require('@googlemaps/google-maps-services-js');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+// Replace with your own Google Maps API key
+const GOOGLE_MAPS_API_KEY = 'AIzaSyDCbG0F_cH2jGp_PltrZgcCe_K-gtEAOco';
+
+// Create a new Google Maps client
+const googleMapsClient = new Client({});
+
 // Serve static files (HTML, CSS, JavaScript)
 app.use(express.static('public'));
 
