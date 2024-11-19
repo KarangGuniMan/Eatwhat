@@ -6,40 +6,40 @@ const restaurants = [
       image: "800 Bowls.jpg"
   },
   {
-      name: "La Scala Ristorante",
-      details: "Italian • 1 Coleman Street • Authentic pasta and pizza",
-      price: "$20-30",
-      image: "/api/placeholder/600/400"
+      name: "King Grouper Fish Soup",
+      details: "Teochew style fish Soup • B1 Capitol • OL Lunch",
+      price: "~$10",
+      image: "King Grouper.PNG"
   },
   {
-      name: "Peninsula Plaza Food Court",
-      details: "Local food court • 111 North Bridge Road • Myanmar and local dishes",
+      name: "MacDonalds",
+      details: "Macs • L1 Funan • Are you lovin it?",
       price: "$5-10",
-      image: "/api/placeholder/600/400"
+      image: "Macs.png"
   },
   {
-      name: "Flaming Don",
-      details: "Japanese fusion • B2 Funan • Flame-grilled rice bowls",
-      price: "$8-15",
-      image: "/api/placeholder/600/400"
+      name: "Funan B2 Cai Fan",
+      details: "Multiple Options • B2 Funan • Guess you can eat other things at food court if you want too",
+      price: "Under $8",
+      image: "Funancaifan.jpeg"
   },
   {
-      name: "Yolé",
-      details: "Healthy bowls & salads • B2 Funan • Fresh ingredients",
-      price: "$12-18",
-      image: "/api/placeholder/600/400"
+      name: "Soi 47",
+      details: "Thai Food • L3 CQ Central • Affordable and nice Thai Food",
+      price: "$10-20",
+      image: "soi47.jpg"
   },
   {
-      name: "Wheat Baumkuchen",
-      details: "Healthy Asian fusion • B1 Peninsula Plaza • Popular grain bowls",
-      price: "$10-15",
-      image: "/api/placeholder/600/400"
+      name: "Tian Xin Wanton Noodle",
+      details: "Local Noodles, Wanton Mee, Lor Mee, Laksa • L2 Adelphi • Tasty and cheap, long queue",
+      price: "under $8",
+      image: "tianxin.jpg"
   },
   {
-      name: "Capitol Singapore Food Hall",
-      details: "Food court • B2 Capitol Singapore • Various cuisines",
-      price: "$6-15",
-      image: "/api/placeholder/600/400"
+      name: "Makanan Bollywood Restaurant",
+      details: "Indian food • B1 Adelphi • Tasty Briyani and Teh Tarik, beware food coma after",
+      price: "~$10",
+      image: "Makanan.jpg"
   },
   {
       name: "Citrus By The Pool",
@@ -79,9 +79,9 @@ const restaurants = [
   },
   {
       name: "Stuff'd",
-      details: "Mexican-Turkish fusion • B1 Funan • Quick healthy options",
+      details: "Mexican-Turkish fusion • B1 Funan • Quick Kebabs and bowls",
       price: "$8-12",
-      image: "/api/placeholder/600/400"
+      image: "stuffd.jpg"
   },
   {
       name: "Supreme Ramen",
