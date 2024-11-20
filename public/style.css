@@ -153,6 +153,11 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    @media screen and (max-width: 768px) {
+        .your-element {
+            background-position: 70% center;
+        }
+    }
 }
 
 /* Additional receipt styling */
