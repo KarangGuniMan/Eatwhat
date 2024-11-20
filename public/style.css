@@ -155,7 +155,7 @@ body {
     background-attachment: fixed;
     @media screen and (max-width: 768px) {
         .your-element {
-            background-position: 70% center;
+            background-position: 85% center;
         }
     }
 }
